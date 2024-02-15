@@ -25,8 +25,14 @@ However, SH1106 driver don't provide several functions such as scroll commands.
 
 
 *********************************************************************/
+#ifdef __AVR__
+  #include <avr/pgmspace.h>
+#elif defined(ESP8266) || defined(ESP32)
+ #include <pgmspace.h>
+#else
+ #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
+#endif
 
-#include <avr/pgmspace.h>
 #ifndef __SAM3X8E__
  #include <util/delay.h>
 #endif
