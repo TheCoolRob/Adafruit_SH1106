@@ -555,10 +555,10 @@ void Adafruit_SH1106::display(void) {
 	else{
 		
 	 // save I2C bitrate
-	#ifndef __SAM3X8E__
-    		uint8_t twbrbackup = TWBR;
-    		TWBR = 12; // upgrade to 400KHz!
-	#endif
+	// #ifndef __SAM3X8E__
+ //    		uint8_t twbrbackup = TWBR;
+ //    		TWBR = 12; // upgrade to 400KHz!
+	// #endif
 	
 	for ( i = 0; i < height; i++) {
 		
@@ -577,9 +577,9 @@ void Adafruit_SH1106::display(void) {
         	}
 	}
 	
-	#ifndef __SAM3X8E__
-    		TWBR = twbrbackup;
-	#endif
+	// #ifndef __SAM3X8E__
+ //    		TWBR = twbrbackup;
+	// #endif
 	}
 }
 
